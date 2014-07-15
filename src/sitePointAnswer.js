@@ -122,15 +122,80 @@ var unstringifiableValues = [
     }
 ];
 
+var stringifiableValues = [
+    9,
+    null,
+    true,
+    false,
+    "Hello world",
+    [],
+    [8],
+    ["hi"],
+    [8, "hi"],
+    [1, 0, -1, -0.3, 0.3, 1343.32, 3345, 0.00011999999999999999],
+    [8, [[],3,4]],
+    [[[["foo"]]]],
+    {},
+    {"a": "apple"},
+    {"foo": true, "bar": false, "baz": null},
+    {"boolean, true": true, "boolean, false": false, "null": null },
+    // basic nesting
+    {"a":{"b":"c"}},
+    {"a":["b", "c"]},
+    [{"a":"b"}, {"c":"d"}],
+    {"a":[],"c": {}, "b": true}
+];
+
+var stringifiableObjects = [
+    9,
+    null,
+    true,
+    false,
+    "Hello world",
+    [],
+    [8],
+    ["hi"],
+    [8, "hi"],
+    [1, 0, -1, -0.3, 0.3, 1343.32, 3345, 0.00011999999999999999],
+    [8, [[],3,4]],
+    [[[["foo"]]]],
+    {},
+    {"a": "apple"},
+    {"foo": true, "bar": false, "baz": null},
+    {"boolean, true": true, "boolean, false": false, "null": null },
+    // basic nesting
+    {"a":{"b":"c"}},
+    {"a":["b", "c"]},
+    [{"a":"b"}, {"c":"d"}],
+    {"a":[],"c": {}, "b": true}
+];
+
+// used for stringifyJSON spec
+// hint: JSON does not allow you to stringify functions or
+// undefined values, so you should skip those key/value pairs.
+unstringifiableValues = [
+    {
+        'functions': function(){},
+        'undefined': undefined
+    }
+];
 
 console.log("This is sitePoint JSON.stringerBell: ")
 //console.log(JSON.stringerBell(medium));
 //console.log(JSON.stringify(medium));
 //console.log(JSON.stringerBell(sitePoint));
 //console.log(JSON.stringify(sitePoint));
-console.log(JSON.stringerBell(stack));
-console.log(JSON.stringify(stack));
+//console.log(JSON.stringerBell(stack));
+//console.log(JSON.stringify(stack));
 //console.log(JSON.stringerBell(aria));
 //console.log(JSON.stringify(aria));
-console.log(JSON.stringerBell(unstringifiableValues));
-console.log(JSON.stringify(unstringifiableValues));
+
+
+console.log(JSON.stringerBell(stringifiableValues));
+console.log(JSON.stringify(stringifiableValues));
+
+//console.log(JSON.stringerBell(stringifiableObjects));
+//console.log(JSON.stringify(stringifiableObjects));
+//
+//console.log(JSON.stringerBell(unstringifiableValues));
+//console.log(JSON.stringify(unstringifiableValues));
